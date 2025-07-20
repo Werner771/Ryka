@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To My Amazing Girlfriend</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            background: linear-gradient(135deg, #ffe6f0, #ffb3d9, #ff80bf);
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 30px;
+            color: #cc0066;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Floating hearts background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); }
+            50% { transform: translateY(-10vh) rotate(180deg); }
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 15px 35px rgba(204, 0, 102, 0.3);
+            border: 3px solid #ff99cc;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .date {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            color: #ff1a75;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(255, 153, 204, 0.5);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff1a75, #cc0066, #ff4da6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(204, 0, 102, 0.3);
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: 1.4em;
+            margin: 20px 0;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .special-message {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #ff1a75;
+            text-shadow: 1px 1px 2px rgba(255, 153, 204, 0.5);
+        }
+        
+        .heart {
+            font-size: 5em;
+            animation: beat 1.5s ease-in-out infinite;
+            margin: 20px 0;
+            display: inline-block;
+        }
+        
+        .small-heart {
+            font-size: 2em;
+            animation: bounce 2s ease-in-out infinite;
+            margin: 0 10px;
+        }
+        
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1) rotate(-5deg); }
+            50% { transform: scale(1.3) rotate(5deg); }
+            75% { transform: scale(1.1) rotate(-2deg); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .sparkle {
+            animation: sparkle 2s linear infinite;
+            margin: 0 5px;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        .love-note {
+            background: linear-gradient(45deg, #ffb3d9, #ffe6f0);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px dashed #ff99cc;
+            box-shadow: 0 5px 15px rgba(255, 153, 204, 0.3);
+        }
+        
+        .emoji-line {
+            font-size: 2em;
+            margin: 15px 0;
+            letter-spacing: 10px;
+        }
+        
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Cute border decoration */
+        .container::before {
+            content: '💕 💖 💕 💖 💕 💖 💕 💖 💕';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 20px;
+            font-size: 1.2em;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            margin-top: 30px;
+            color: #ff1a75;
+            font-weight: 600;
+        }
+        
+        /* Image styles */
+        .photo-frame {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(204, 0, 102, 0.3);
+            margin: 30px auto;
+            max-width: 300px;
+            border: 3px solid #ff99cc;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+        
+        .photo-placeholder {
+            background: linear-gradient(45deg, #ffb3d9, #ffe6f0);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #ff99cc;
+            border: 2px dashed #ff99cc;
+        }
+        
+        .photo-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .small-photo {
+            max-width: 150px;
+            transform: rotate(1deg);
+        }
+        
+        .small-photo:nth-child(even) {
+            transform: rotate(-1deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts">
+        <div class="floating-heart" style="left: 10%; animation-delay: 0s;">💖</div>
+        <div class="floating-heart" style="left: 20%; animation-delay: 1s;">💕</div>
+        <div class="floating-heart" style="left: 30%; animation-delay: 2s;">💝</div>
+        <div class="floating-heart" style="left: 40%; animation-delay: 3s;">💗</div>
+        <div class="floating-heart" style="left: 50%; animation-delay: 4s;">💓</div>
+        <div class="floating-heart" style="left: 60%; animation-delay: 0.5s;">💖</div>
+        <div class="floating-heart" style="left: 70%; animation-delay: 1.5s;">💕</div>
+        <div class="floating-heart" style="left: 80%; animation-delay: 2.5s;">💝</div>
+        <div class="floating-heart" style="left: 90%; animation-delay: 3.5s;">💗</div>
+    </div>
+
+    <div class="container">
+        <div class="date">18 April 2025</div>
+        
+        <div class="heart">💖</div>
+        <h1>Hey Love!</h1>
+        
+        <div class="emoji-line">
+            <span class="sparkle">✨</span>
+            <span class="small-heart">💕</span>
+            <span class="sparkle">⭐</span>
+            <span class="small-heart">💖</span>
+            <span class="sparkle">✨</span>
+        </div>
+        
+        <div class="love-note">
+            <p class="special-message">You are the best girlfriend in the whole world! 🌟</p>
+            <p>Beautiful <span class="pulse">💄</span>, smart <span class="pulse">🧠</span>, kind <span class="pulse">😇</span>, and my absolute favorite person! <span class="small-heart">💕</span></p>
+        </div>
+        
+        <p>Just wanted to remind you how absolutely <strong>AMAZING</strong> you are! 🥰</p>
+        
+        <div class="emoji-line">
+            <span class="bounce">🌸</span>
+            <span class="bounce">🦋</span>
+            <span class="bounce">🌺</span>
+            <span class="bounce">🦋</span>
+            <span class="bounce">🌸</span>
+        </div>
+        
+        <!-- Main Photo Section -->
+        <div class="photo-frame">
+            <!-- Replace the src below with your image file name or URL -->
+            <!-- Example: <img src="my_girlfriend.jpg" alt="My amazing girlfriend"> -->
+            <div class="photo-placeholder">📸💕</div>
+        </div>
+        
+        <p>You make every day brighter with your smile! <span class="sparkle">☀️</span></p>
+        <p>Thank you for being you - perfect in every way! <span class="small-heart">💗</span></p>
+        
+        <!-- Photo Gallery Section -->
+        <div class="photo-gallery">
+            <div class="photo-frame small-photo">
+                <!-- <img src="photo1.jpg" alt="Us together"> -->
+                <div class="photo-placeholder">💑</div>
+            </div>
+            <div class="photo-frame small-photo">
+                <!-- <img src="photo2.jpg" alt="Beautiful moment"> -->
+                <div class="photo-placeholder">💝</div>
+            </div>
+        </div>
+        
+        <div class="heart">💕</div>
+        
+        <div class="signature">Forever yours 💖</div>
+    </div>
+</body>
+</html>
