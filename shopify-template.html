@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Only Pumps - Professional Pump Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #0074d9, #0056b3);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 116, 217, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 116, 217, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+            box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-success:hover {
+            box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .features {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .pump-showcase {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .pump-showcase h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+        
+        .pump-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pump-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .pump-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .pump-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #1976d2;
+        }
+        
+        .pump-card-content {
+            padding: 25px;
+        }
+        
+        .pump-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .pump-price {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #e74c3c;
+            margin: 15px 0;
+        }
+        
+        .pump-specs {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .pump-specs li {
+            padding: 5px 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .testimonials {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 600px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            opacity: 0.9;
+        }
+        
+        .contact-section {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #0074d9;
+            box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.1);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+        
+        .contact-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #0074d9;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid,
+            .pump-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Homepage Template -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Only Pumps</h1>
+            <p>Pure Pressure. Pure Performance. Professional Solutions.</p>
+            <a href="/collections/vega-pumps" class="btn">Browse Vega Pumps</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Why Professionals Choose Only Pumps</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Trusted Vega Supplier</h3>
+                <p>Authorized distributor of premium Vega pumps with full warranty support and genuine parts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚛</div>
+                <h3>Fast Nationwide Delivery</h3>
+                <p>Quick shipping across South Africa with tracking and insurance on all orders.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>Technical Support</h3>
+                <p>Expert installer support and technical assistance from our qualified team.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pump-showcase">
+    <div class="container">
+        <h2>Featured Vega Pumps</h2>
+        <div class="pump-grid">
+            <div class="pump-card">
+                <div class="pump-image">🔄</div>
+                <div class="pump-card-content">
+                    <h3>Vega Centrifugal Pump</h3>
+                    <div class="pump-price">R 2,450.00</div>
+                    <ul class="pump-specs">
+                        <li>Flow Rate: 50L/min</li>
+                        <li>Head: 35m</li>
+                        <li>Power: 1.5kW</li>
+                        <li>Inlet/Outlet: 50mm</li>
+                    </ul>
+                    <a href="#" class="btn">View Details</a>
+                </div>
+            </div>
+            
+            <div class="pump-card">
+                <div class="pump-image">⚡</div>
+                <div class="pump-card-content">
+                    <h3>Vega Submersible Pump</h3>
+                    <div class="pump-price">R 3,890.00</div>
+                    <ul class="pump-specs">
+                        <li>Flow Rate: 80L/min</li>
+                        <li>Head: 45m</li>
+                        <li>Power: 2.2kW</li>
+                        <li>Depth: 150m max</li>
+                    </ul>
+                    <a href="#" class="btn">View Details</a>
+                </div>
+            </div>
+            
+            <div class="pump-card">
+                <div class="pump-image">💧</div>
+                <div class="pump-card-content">
+                    <h3>Vega Pressure Pump</h3>
+                    <div class="pump-price">R 1,890.00</div>
+                    <ul class="pump-specs">
+                        <li>Flow Rate: 35L/min</li>
+                        <li>Pressure: 4.5 bar</li>
+                        <li>Power: 1.1kW</li>
+                        <li>Auto Start/Stop</li>
+                    </ul>
+                    <a href="#" class="btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="container">
+        <h2>What Our Installers Say</h2>
+        <div class="testimonial-card">
+            <div class="testimonial-text">
+                "Best prices on Vega pumps and exceptional technical support. The team really understands what installers need in the field."
+            </div>
+            <div class="testimonial-author">– Jaco V., Pretoria Installer</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-text">
+                "Reliable delivery and quality pumps. Only Pumps has become our go-to supplier for all irrigation projects."
+            </div>
+            <div class="testimonial-author">– Sarah M., Cape Town Agricultural Contractor</div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Collection Page (collection.liquid) -->
+<section class="pump-showcase">
+    <div class="container">
+        <h1>Vega Pumps Collection</h1>
+        <p style="text-align: center; font-size: 1.2em; margin-bottom: 40px;">
+            Explore our complete range of high-performance Vega pumps for any professional installation.
+        </p>
+        <div class="pump-grid">
+            {% for product in collection.products %}
+            <div class="pump-card">
+                {% if product.featured_image %}
+                    <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" style="width: 100%; height: 200px; object-fit: cover;">
+                {% else %}
+                    <div class="pump-image">🔄</div>
+                {% endif %}
+                <div class="pump-card-content">
+                    <h3>{{ product.title }}</h3>
+                    <div class="pump-price">{{ product.price | money }}</div>
+                    <a href="{{ product.url }}" class="btn">View Details</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Product Page (product.liquid) -->
+<section style="padding: 60px 0;">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;">
+            <div>
+                {% if product.featured_image %}
+                    <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                {% else %}
+                    <div style="width: 100%; height: 400px; background: linear-gradient(45deg, #e3f2fd, #bbdefb); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 6em; color: #1976d2;">🔄</div>
+                {% endif %}
+            </div>
+            <div>
+                <h1 style="font-size: 2.5em; margin-bottom: 20px; color: #2c3e50;">{{ product.title }}</h1>
+                <div style="font-size: 2em; font-weight: 700; color: #e74c3c; margin: 20px 0;">{{ product.price | money }}</div>
+                <p style="font-size: 1.1em; line-height: 1.6; margin-bottom: 30px;">{{ product.description }}</p>
+                
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin: 30px 0;">
+                    <h3 style="margin-bottom: 15px; color: #2c3e50;">Product Specifications</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid #dee2e6;"><strong>Brand:</strong> Vega</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #dee2e6;"><strong>Warranty:</strong> 12 months</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #dee2e6;"><strong>Support:</strong> Installer Technical Support</li>
+                        <li style="padding: 8px 0;"><strong>Delivery:</strong> 2-3 Business Days</li>
+                    </ul>
+                </div>
+                
+                <form method="post" action="/cart/add" style="margin-top: 30px;">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    <button type="submit" class="btn btn-success" style="font-size: 1.2em; padding: 15px 30px;">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Page (page.about.liquid) -->
+<section style="padding: 60px 0; background: #f8f9fa;">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2.5em; margin-bottom: 30px; color: #2c3e50;">About Only Pumps</h2>
+            <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 30px;">
+                Only Pumps is South Africa's premier online destination for professional-grade Vega pumps. We specialize in serving installers, contractors, and industry professionals with the reliable, high-performance equipment they need to get the job done right.
+            </p>
+            <p style="font-size: 1.1em; line-height: 1.7; color: #666;">
+                Whether you're working on irrigation systems, sewage management, domestic water supply, or industrial applications, our comprehensive range of Vega pumps delivers the quality and performance you can trust. With nationwide delivery, technical support, and competitive pricing, we're your complete pump solution partner.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Page (page.contact.liquid) -->
+<section class="contact-section">
+    <div class="container">
+        <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 20px; color: #2c3e50;">Contact Us</h2>
+        <p style="text-align: center; font-size: 1.2em; margin-bottom: 50px; color: #666;">
+            Need help choosing the right pump or have a technical question? Our expert team is here to help.
+        </p>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 style="margin-bottom: 30px; color: #2c3e50;">Get In Touch</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>support@onlypumps.co.za</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+27 12 345 6789</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💬</span>
+                    <span>WhatsApp: +27 71 234 5678</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕒</span>
+                    <span>Mon-Fri: 8:00 AM - 5:00 PM</span>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 style="margin-bottom: 30px; color: #2c3e50;">Send us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Your Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option>Select Inquiry Type</option>
+                            <option>Product Information</option>
+                            <option>Technical Support</option>
+                            <option>Pricing & Quotes</option>
+                            <option>Installation Support</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
