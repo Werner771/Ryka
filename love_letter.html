@@ -2,94 +2,208 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To My Amazing Girlfriend</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            background-color: #ffb3d9;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 15px;
-            color: #cc0066;
+            background: linear-gradient(135deg, #f8f4f6 0%, #e8ddd4 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #2c2c2c;
             position: relative;
         }
         
-        /* Rabbit watermark */
+        /* Subtle watermark */
         body::before {
             content: '🐰';
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 15em;
-            opacity: 0.1;
-            z-index: -1;
+            font-size: 12em;
+            opacity: 0.03;
+            z-index: 0;
             pointer-events: none;
         }
         
         .container {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            max-width: 350px;
-            margin: 0 auto;
-            border: 2px solid #ff99cc;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 48px 40px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.08),
+                0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
             z-index: 1;
         }
         
         .date {
-            font-size: 1.1em;
-            color: #ff1a75;
-            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 300;
+            color: #8b5a6b;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .heart-icon {
+            font-size: 28px;
+            margin-bottom: 16px;
+            opacity: 0.8;
         }
         
         h1 {
-            font-size: 2.2em;
-            margin: 8px 0;
-            color: #cc0066;
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #5a3d47;
+            margin-bottom: 8px;
+            line-height: 1.2;
         }
         
-        p {
-            font-size: 1em;
-            margin: 8px 0;
-            line-height: 1.3;
+        .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            color: #8b5a6b;
+            font-style: italic;
         }
         
-        .heart {
-            font-size: 2.5em;
-            margin: 8px 0;
+        .content {
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        
+        .message {
+            font-size: 16px;
+            color: #4a4a4a;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .highlight {
+            font-weight: 500;
+            color: #5a3d47;
+        }
+        
+        .photo-section {
+            margin: 32px 0;
+            text-align: center;
         }
         
         .photo-frame {
-            background: #f5f5f5;
-            padding: 8px;
-            border-radius: 10px;
-            margin: 12px auto;
-            max-width: 180px;
-            border: 1px solid #ff99cc;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f0f0;
+            margin: 0 auto;
         }
         
         .photo-frame img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
         }
         
         .photo-placeholder {
-            background: #ffe6f0;
-            height: 120px;
-            border-radius: 5px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #f8f4f6, #f0f0f0);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8em;
-            color: #ff99cc;
+            font-size: 24px;
+            color: #bbb;
+            border: 2px dashed #ddd;
+        }
+        
+        .qualities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+            margin: 32px 0;
+        }
+        
+        .quality {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(139, 90, 107, 0.1);
+        }
+        
+        .quality-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .quality-text {
+            font-size: 14px;
+            font-weight: 400;
+            color: #5a3d47;
+        }
+        
+        .closing {
+            text-align: center;
+            margin-top: 40px;
         }
         
         .signature {
-            font-size: 1.2em;
-            margin-top: 12px;
-            color: #ff1a75;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #5a3d47;
+            font-weight: 400;
+            margin-top: 16px;
+        }
+        
+        .heart-accent {
+            font-size: 20px;
+            margin: 16px 0;
+            opacity: 0.7;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .container {
+                padding: 32px 24px;
+                margin: 16px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .photo-placeholder,
+            .photo-frame img {
+                width: 160px;
+                height: 160px;
+            }
         }
     </style>
 </head>
@@ -97,23 +211,52 @@
     <div class="container">
         <div class="date">18 April 2025</div>
         
-        <div class="heart">💖</div>
-        <h1>Hey Love!</h1>
-        
-        <p><strong>You are the best girlfriend in the whole world!</strong></p>
-        
-        <div class="photo-frame">
-            <!-- Replace with: <img src="your_photo.jpg" alt="My girlfriend"> -->
-            <div class="photo-placeholder">📸</div>
+        <div class="header">
+            <div class="heart-icon">💖</div>
+            <h1>Hey Love</h1>
+            <div class="subtitle">A note for someone special</div>
         </div>
         
-        <p>Beautiful, smart, kind, and my favorite person! 💕</p>
-        <p>Just wanted to remind you how amazing you are! 🥰</p>
-        <p>You make every day brighter with your smile! ☀️</p>
+        <div class="content">
+            <div class="message">
+                <span class="highlight">You are the best girlfriend in the whole world.</span>
+            </div>
+            
+            <div class="photo-section">
+                <div class="photo-frame">
+                    <!-- Replace with: <img src="your_photo.jpg" alt="My girlfriend"> -->
+                    <div class="photo-placeholder">📸</div>
+                </div>
+            </div>
+            
+            <div class="qualities">
+                <div class="quality">
+                    <div class="quality-icon">✨</div>
+                    <div class="quality-text">Beautiful</div>
+                </div>
+                <div class="quality">
+                    <div class="quality-icon">🧠</div>
+                    <div class="quality-text">Smart</div>
+                </div>
+                <div class="quality">
+                    <div class="quality-icon">💝</div>
+                    <div class="quality-text">Kind</div>
+                </div>
+            </div>
+            
+            <div class="message">
+                Just wanted to remind you how amazing you are.
+            </div>
+            
+            <div class="message">
+                You make every day brighter with your smile.
+            </div>
+        </div>
         
-        <div class="heart">💕</div>
-        
-        <div class="signature">Forever yours 💖</div>
+        <div class="closing">
+            <div class="heart-accent">💕</div>
+            <div class="signature">Forever yours</div>
+        </div>
     </div>
 </body>
 </html>
