@@ -233,11 +233,11 @@ p {
 .features-list li {
     padding: 0.5rem 0;
     position: relative;
-    padding-left: 2rem;
+    padding-left: 0;
 }
 
 .features-list li::before {
-    content: '✓';
+    content: '';
     position: absolute;
     left: 0;
     color: #e74c3c;
